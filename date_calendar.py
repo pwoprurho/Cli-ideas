@@ -6,21 +6,18 @@ python code that calculates the absolute difference between the current date and
 IDE: pydriod
 Script title: Difference in dates
 """
-from datetime import datetime
+import calendar as c
 
-# Write a one-liner that substracts the difference between two dates.
-def diff_in_days(start, end): return abs(end-start).days
-  
-# Collect the data of our targeted dates as integers
-year = int(input("Enter the year: "))
-month = int(input("Enter the month: "))
-day = int(input("Enter the day: "))
-
-# Using datetime we collect the current date
-start = datetime.now()
-# Convert our collected integer variables to date variables
-end = datetime(year, month, day)
-
-# Initialize our oneline function
+def display_calendar():
+    year = int(input("Enter the year: "))
+    month = int(input("Enter the month here: "))
+    try:
+        if month <= 12:
+            cal = c.TextCalendar(c.SUNDAY)
+            month_cal = cal.formatmonth (year, month)
+        print(month_cal)
+    except TypeError:
+        print("Invalid input please try a numeric input")
+    
 if __name__ == "__main__":
-  print(diff_in_days(start, end))
+    display_calendar()
